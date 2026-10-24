@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MiuMiu Booth – Web tĩnh (HTML / CSS / JS)
 
 Không còn .NET, MVC hay SQL. Toàn bộ website là 1 trang `index.html` + `css/site.css` + `js/app.js`.
@@ -45,3 +46,6 @@ css/site.css
 js/app.js        (dữ liệu, router, các trang, admin)
 images/          (ảnh thật, tùy chọn)
 ```
+=======
+# Coanhcoemstudio.github.io
+>>>>>>> 6c7b129a5cd91d16efb92aa04278ee57d5e07e0b
