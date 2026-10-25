@@ -359,7 +359,7 @@
         function act(k) { return nav === k ? "active" : ""; }
         var digits = SITE.Hotline.replace(/\D/g, "");
         return '<header class="site-header"><nav class="container nav" aria-label="Menu chính">' +
-            '<a class="logo" href="#/"><img src="images/Coanhcoem.png" alt="Coanhcoem Studio" /></a>' +
+            '<a class="logo" href="#/"><img src="images/coanhcoem.png" alt="Coanhcoem Studio" /></a>' +
             '<div class="nav-links" id="navLinks">' +
             '<a class="' + act("home") + '" href="#/">Trang chủ</a>' +
             '<a class="' + act("about") + '" href="#/gioi-thieu">Giới thiệu</a>' +
@@ -424,7 +424,7 @@
         // 4 khung "Điểm đặc biệt" (trang Giới thiệu). img = ảnh nền (đặt trong images/), để "" nếu không muốn dùng ảnh.
     var FEATURES = [
         { ico: "",  title: "Thiết kế xinh xắn",         desc: "Phù hợp mọi không gian",       img: "images/anh1.jpg" },
-        { ico: "",  title: "Hình ảnh chất lượng cao",   desc: "Máy ảnh chuyên nghiệp",        img: "images/May1.jpg" },
+        { ico: "",  title: "Hình ảnh chất lượng cao",   desc: "Máy ảnh chuyên nghiệp",        img: "images/may1.jpg" },
         { ico: "", title: "Nhiều khung ảnh sáng tạo",  desc: "Liên tục cập nhật mẫu mới",    img: "images/anh3.jpg" },
         { ico: "", title: "Dịch vụ tận tâm",           desc: "Hỗ trợ từ A - Z cho bạn",      img: "images/anh4.jpg" }
     ];
@@ -444,11 +444,11 @@
             "<p>Coanhcoem Studio ra đời với mong muốn mang đến trải nghiệm chụp ảnh photobooth hiện đại, xinh xắn và đầy cảm xúc cho mọi người. " +
             "Chúng mình tin rằng mỗi bức ảnh không chỉ là hình ảnh, mà còn là một câu chuyện, một kỷ niệm đáng nhớ cùng những người bạn yêu thương.</p>" +
             '<a class="btn btn-primary" href="#/dat-lich">Đặt lịch ngay</a></div>' +
-            '<div class="hero-visual">' + visual("May1.jpg", "Quầy photobooth Coanhcoem Studio trang trí hoa", "frame") + "</div></div></div></section>" +
+            '<div class="hero-visual">' + visual("may1.jpg", "Quầy photobooth Coanhcoem Studio trang trí hoa", "frame") + "</div></div></div></section>" +
             '<section class="section"><div class="container"><h2 class="section-title"><span class="ico"></span> ĐIỂM ĐẶC BIỆT CỦA COANHCOEM STUDIO</h2><div class="grid grid-4">' +
                       featureCards() + '</div></div></section>' +
             '<section class="section"><div class="container hero-grid reverse"><div class="hero-visual">' +
-            visual("May2.jpg", "Những khoảnh khắc đáng yêu cùng Coanhcoem Studio", "frame wide") + '</div><div class="hero-text">' +
+            visual("may2.jpg", "Những khoảnh khắc đáng yêu cùng Coanhcoem Studio", "frame wide") + '</div><div class="hero-text">' +
             '<h2 class="section-title left"><span class="ico">🌿</span> Câu chuyện của chúng mình</h2>' +
             "<p>Coanhcoem Studio được thành lập bởi những người trẻ yêu thích nhiếp ảnh và mong muốn mang đến những khoảnh khắc đáng yêu cho mọi khách hàng. " +
             "Từ những tiệm nhỏ, chúng mình đã đồng hành cùng hàng trăm sự kiện, gửi gắm niềm vui, sự thân thương và tạo nên những kỷ niệm khó quên.</p>" +
@@ -515,7 +515,7 @@
         return siteLayout("book",
             '<section class="section page-head"><div class="container center"><h1 class="page-title"><span class="ico"></span> ĐẶT LỊCH NGAY</h1>' +
             '<p class="section-sub">Để không bỏ lỡ những khoảnh khắc đáng yêu nhé!</p></div>' +
-            '<div class="container book-grid"><div class="book-visual">' + visual("May1.jpg", "Nhóm bạn chụp ảnh cùng Coanhcoem Studio", "frame") +
+            '<div class="container book-grid"><div class="book-visual">' + visual("may1.jpg", "Nhóm bạn chụp ảnh cùng Coanhcoem Studio", "frame") +
             '<p class="script-note">Good Friends<br />Good Memories ♡</p></div>' +
             '<form id="bookForm" class="form-card" novalidate><h2 class="form-title"><span class="ico"></span> Thông tin đặt lịch</h2>' +
             (state.general ? '<div class="validation">' + esc(state.general) + "</div>" : "") +
@@ -560,7 +560,7 @@
             '<li><span class="c-ico c-fb">f</span><div><strong>Facebook</strong><a href="' + esc(SITE.FacebookUrl) + '" target="_blank" rel="noopener">Coanhcoem Studio</a><small>Cập nhật ưu đãi mới nhất</small></div></li>' +
             '<li><span class="c-ico c-ig">📸</span><div><strong>Instagram</strong><a href="https://instagram.com/' + esc(SITE.InstagramHandle) + '" target="_blank" rel="noopener">@' + esc(SITE.InstagramHandle) + "</a><small>Xem thêm hình ảnh xinh xắn</small></div></li>" +
             '<li><span class="c-ico c-addr">📍</span><div><strong>Địa chỉ</strong><span>' + esc(SITE.Address) + "</span><small>Hỗ trợ set up toàn quốc</small></div></li></ul>" +
-            '<div class="book-visual">' + visual("May2.jpg", "Quầy photobooth Coanhcoem Studio", "frame") + "</div></div></section>" +
+            '<div class="book-visual">' + visual("may2.jpg", "Quầy photobooth Coanhcoem Studio", "frame") + "</div></div></section>" +
             '<section class="section"><div class="container contact-bottom"><div><h2 class="section-title left"><span class="ico"></span> Bản đồ chỉ đường</h2>' +
             '<div class="map"><iframe title="Bản đồ Coanhcoem Studio" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=' +
             encodeURIComponent(SITE.MapQuery) + '&output=embed"></iframe></div></div>' +
