@@ -90,10 +90,11 @@
         { file: "sk8.jpg", title: "Eurostone – You & Me (nhóm)" },
         { file: "sk9.jpg",    title: "HDBank – Team building Đồng Nai (nhóm)" },
         { file: "sk10.jpg", title: "Eurostone – You & Me (photostrip đôi)" },
-        { file: "sk11.jpg",    title: "HDBank – Team building (chị em)" },
-        { file: "sk12.jpg", title: "Eurostone – Trọn vẹn Eurostone" },
-        { file: "sk13.jpg",    title: "HDBank – Team building (cầm bảng)" },
-        { file: "sk14.jpg",    title: "HDBank – Tôi yêu HDBank" }
+        { file: "le1.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 1" },
+        { file: "le2.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 2" },
+        { file: "le3.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 3" },
+        { file: "le4.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 4" },
+        { file: "le5.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 5" }
     ];
 
     // =====================================================================
