@@ -348,6 +348,7 @@ body.admin { background: var(--olive-50); }
     body { padding-bottom: 72px; }
     .section { padding: 34px 0; }
     .grid-4 { grid-template-columns: 1fr; }
+        .grid-center > * { flex-basis: 100%; }
     .price-card.is-featured { transform: none; }
     .form-card { padding: 18px; }
     .stats { grid-template-columns: 1fr 1fr 1fr; }
