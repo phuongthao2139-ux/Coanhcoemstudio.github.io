@@ -42,7 +42,7 @@
             ],
             note: [
                 "Giờ phát sinh 1.500.000vnđ/1h .",
-                "Miễn phí di chuyển trong bán kính 40km .",
+                "Miễn phí di chuyển trong bán kính 15km .",
                 "Giá chưa bao gồm thuế phí xuất hóa đơn VAT nếu khách hàng có nhu cầu"
             ]
         },
@@ -52,9 +52,9 @@
                 { name: "CHỤP ẢNH TRUYỀN THỐNG", price: "2.500.000",
                   features: ["1 máy chụp giao toàn bộ file", "Nâng tone làm mịn da", "In 100 tấm làm album"] },
                 { name: "CHỤP ẢNH PHÓNG SỰ", price: "3.500.000",
-                  features: ["1 máy chụp giao toàn bộ file", "Chụp từ khúc trang điểm, chân dung, gia đình chuẩn bị,....", "Nâng tone làm mịn da, chỉnh sửa dáng 200 tấm"] },
+                  features: ["1 máy chụp giao toàn bộ file", "Chụp cô dâu trang điểm, chân dung, gia đình chuẩn bị,....", "Nâng tone làm mịn da, chỉnh sửa dáng 200 tấm"] },
                 { name: "QUAY PHÓNG SỰ", price: "5.500.000",
-                  features: ["1 máy quay phim phóng sự", "Tặng Fly cam tà cảnh", "Giao clip thành phẩm 5-10 phút"] }
+                  features: ["1 máy quay phim phóng sự", "Tặng Fly cam tả cảnh", "Giao clip thành phẩm 5-10 phút"] }
             ]
         }
     };
