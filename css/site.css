@@ -211,10 +211,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .tab:hover { text-decoration: none; background: var(--olive-100); }
 .tab.active { background: var(--olive-500); border-color: var(--olive-500); color: #fff; }
 .tab:hover { border-color: var(--olive-400); }
-.masonry { columns: 4 220px; column-gap: 14px; margin-bottom: 26px; }
-.shot { break-inside: avoid; margin: 0 0 14px; border-radius: 14px; overflow: hidden; background: var(--olive-100); box-shadow: var(--shadow); cursor: zoom-in; }
-.shot img { width: 100%; height: auto; transition: transform .3s; }
-.shot:hover img { transform: scale(1.04); }
+.masonry { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.masonry::after { content: ""; flex-grow: 999; }   /* hàng cuối không bị kéo giãn quá */
+.shot { margin: 0; flex: 1 1 200px; border-radius: 14px; overflow: hidden; background: var(--olive-100); box-shadow: var(--shadow); cursor: zoom-in; }
+.shot img { display: block; width: 100%; height: auto; transition: transform .3s; }
 .shot-ph { aspect-ratio: 3 / 4; display: grid; place-content: center; text-align: center; gap: 6px; color: var(--olive-500); cursor: default; }
 .shot-ph span { font-size: 2.6rem; }
 .shot:nth-child(3n) .shot-ph { aspect-ratio: 1 / 1; }
@@ -352,7 +352,8 @@ body.admin { background: var(--olive-50); }
     .form-card { padding: 18px; }
     .stats { grid-template-columns: 1fr 1fr 1fr; }
     .stat { padding: 10px; } .stat b { font-size: 1.3rem; }
-    .masonry { columns: 2 140px; column-gap: 10px; }
+    .masonry { gap: 8px; }
+    .shot { height: 150px; }
     .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 6px; scrollbar-width: none; }
     .tab { white-space: nowrap; }
 

@@ -70,42 +70,19 @@
     var STORE_KEY = "miumiu.booth.data.v1";
     var AUTH_KEY = "miumiu.booth.admin";
     // Ảnh thực tế (file nằm trong thư mục images/). cat = Tiệc cưới | Sinh nhật | Doanh nghiệp | Sự kiện. Bỏ cat thì mặc định là Doanh nghiệp.
-    var GALLERY_PHOTOS = [
-        { file: "c1.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Minh & Lan" },
-        { file: "c2.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Hương & Tuấn" },
-        { file: "c3.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Hoa & Hải" },
-        { file: "c4.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Mai & Hưng" },
-        { file: "c5.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Lan & Minh" },
-        { file: "c6.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Hạnh & Sơn" },
-        { file: "c7.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Thảo & Duy" },
-        { file: "c8.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Phương & Quang" },
-        { file: "c9.jpg",    cat: "Tiệc cưới",  title: "Đám cưới Trang & Huy" },
-        { file: "c10.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Linh & Khoa" },
-        { file: "c11.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Vy & Nam" },
-        { file: "c12.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Hương & Phúc" },
-        { file: "c13.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Thủy & Hoàng" },
-        { file: "c14.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Mai & Long" },
-        { file: "c15.jpg",   cat: "Tiệc cưới",  title: "Đám cưới Hạnh & Tuấn" },
-        { file: "sk1.jpg", title: "Eurostone – You & Me (nhóm)" },
-        { file: "sk2.jpg",    title: "HDBank – Team building Đồng Nai (nhóm)" },
-        { file: "sk3.jpg", title: "Eurostone – You & Me (photostrip đôi)" },
-        { file: "sk4.jpg",    title: "HDBank – Team building (chị em)" },
-        { file: "sk5.jpg", title: "Eurostone – Trọn vẹn Eurostone" },
-        { file: "sk6.jpg",    title: "HDBank – Team building (cầm bảng)" },
-        { file: "sk7.jpg",    title: "HDBank – Tôi yêu HDBank" },
-        { file: "sk8.jpg", title: "Eurostone – You & Me (nhóm)" },
-        { file: "sk9.jpg",    title: "HDBank – Team building Đồng Nai (nhóm)" },
-        { file: "sk10.jpg", title: "Eurostone – You & Me (photostrip đôi)" },
-        { file: "le1.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 1" },
-        { file: "le2.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 2" },
-        { file: "le3.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 3" },
-        { file: "le4.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 4" },
-        { file: "le5.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 5" },
-        { file: "sn1.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
-        { file: "sn2.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
-        { file: "sn3.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
-        { file: "sn4.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" }
-    ];
+        // Tạo danh sách ảnh theo dãy: gallery("tiền tố", từ số, đến số, "Danh mục", "Tiêu đề")
+    // Ví dụ gallery("c", 1, 15, ...) => c1.jpg ... c15.jpg
+    function gallery(prefix, from, to, cat, title) {
+        var out = [];
+        for (var i = from; i <= to; i++) out.push({ file: prefix + i + ".jpg", cat: cat, title: title + " " + i });
+        return out;
+    }
+    var GALLERY_PHOTOS = [].concat(
+        gallery("c",  1, 110, "Tiệc cưới",    "Tiệc cưới"),
+        gallery("sk", 1, 39, "Doanh nghiệp", "Tiệc công ty"),
+        gallery("le", 1, 5,  "Sự kiện",      "Sự kiện ngày lễ"),
+        gallery("sn", 1, 4,  "Sinh nhật",    "Sinh nhật")
+    );
 
     // =====================================================================
     // TIỆN ÍCH
@@ -530,9 +507,13 @@
             '<p class="center sv-cta"><a class="btn btn-primary" href="#/dat-lich">Đặt lịch ngay →</a></p></div>');
     };
 
-    pages.gallery = function () {
+        pages.gallery = function () {
+        // Thứ tự theo khai báo trong GALLERY_PHOTOS (c1, c2, c3...); ảnh tải lên từ trang quản trị xếp sau cùng
+        var ORDER = {};
+        GALLERY_PHOTOS.forEach(function (c, i) { ORDER["images/" + c.file] = i; });
+        function rank(p) { return ORDER[p.imageUrl] != null ? ORDER[p.imageUrl] : 100000 + (p.sortOrder || 0); }
         var photos = db.photos.filter(function (p) { return p.isVisible && safeUrl(p.imageUrl) && HIDDEN_CATEGORIES.indexOf(p.category) < 0; })
-            .sort(function (a, b) { return (a.sortOrder - b.sortOrder) || (b.id - a.id); });
+            .sort(function (a, b) { return (rank(a) - rank(b)) || (b.id - a.id); });
         var cats = photos.map(function (p) { return p.category; }).filter(function (c, i, a) { return a.indexOf(c) === i; });
         return siteLayout("gallery",
             '<section class="section page-head"><div class="container center"><h1 class="page-title"><span class="ico"></span> Hình ảnh thực tế</h1>' +
@@ -859,11 +840,22 @@
             el.remove();
             draw();
         }
+        // Mỗi ảnh chiếm chỗ theo đúng tỉ lệ khung hình => các ảnh cùng hàng cao bằng nhau, không bị cắt
+        var ROW_H = window.innerWidth <= 640 ? 150 : 240;
+        function fitShot(el, img) {
+            if (!img.naturalWidth || !img.naturalHeight) return;
+            var r = img.naturalWidth / img.naturalHeight;
+            el.style.flex = r + " 1 " + Math.round(r * ROW_H) + "px";
+        }
         shots.forEach(function (el) {
             var img = el.querySelector("img");
             if (!img) return;
             if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) dropBroken(img);
-            else img.addEventListener("error", function () { dropBroken(img); });
+            else {
+                if (img.complete) fitShot(el, img);
+                img.addEventListener("load", function () { fitShot(el, img); });
+                img.addEventListener("error", function () { dropBroken(img); });
+            }
         });
         Array.prototype.forEach.call(tabs, function (tab) {
             tab.addEventListener("click", function () {
