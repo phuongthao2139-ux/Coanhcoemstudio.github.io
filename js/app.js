@@ -11,7 +11,7 @@
         Hotline: "0889 281 187",
         ZaloUrl: "https://zalo.me/0384230341",
         FacebookUrl: "https://www.facebook.com/share/1EeQNeP9jQ/",
-        InstagramHandle: "miumiu.booth",
+        TiktokHandle: "CoanhcoemStudio",
         Address: " Tân Lập, Lâm Đồng, Việt Nam",
         MapQuery: "Tân Lập, Lâm Đồng, Việt Nam",
         HoursWeekday: "8:00 - 20:00",
@@ -597,7 +597,7 @@
             '<li><span class="c-ico c-phone">📞</span><div><strong>Hotline</strong><a href="tel:' + esc(digits) + '">' + esc(SITE.Hotline) + "</a><small>Tư vấn nhanh chóng</small></div></li>" +
             '<li><span class="c-ico c-zalo">💬</span><div><strong>Zalo</strong><a href="' + esc(SITE.ZaloUrl) + '" target="_blank" rel="noopener">Chat qua Zalo</a><small>Nhận báo giá ngay</small></div></li>' +
             '<li><span class="c-ico c-fb">f</span><div><strong>Facebook</strong><a href="' + esc(SITE.FacebookUrl) + '" target="_blank" rel="noopener">Coanhcoem Studio</a><small>Cập nhật ưu đãi mới nhất</small></div></li>' +
-            '<li><span class="c-ico c-ig">📸</span><div><strong>Instagram</strong><a href="https://instagram.com/' + esc(SITE.InstagramHandle) + '" target="_blank" rel="noopener">@' + esc(SITE.InstagramHandle) + "</a><small>Xem thêm hình ảnh xinh xắn</small></div></li>" +
+            '<li><span class="c-ico c-tt">🎵</span><div><strong>TikTok</strong><a href="https://www.tiktok.com/@coanhcoemstudio?is_from_webapp=1&sender_device=pc' + esc(SITE.TiktokHandle) + '" target="_blank" rel="noopener">@' + esc(SITE.TiktokHandle) + "</a><small>Xem thêm video xinh xắn</small></div></li>" +
             '<li><span class="c-ico c-addr">📍</span><div><strong>Địa chỉ</strong><span>' + esc(SITE.Address) + "</span><small>Hỗ trợ set up toàn quốc</small></div></li></ul>" +
             '<div class="book-visual">' + visual("may2.jpg", "Quầy photobooth Coanhcoem Studio", "frame") + "</div></div></section>" +
             '<section class="section"><div class="container contact-bottom"><div><h2 class="section-title left"><span class="ico"></span> Bản đồ chỉ đường</h2>' +

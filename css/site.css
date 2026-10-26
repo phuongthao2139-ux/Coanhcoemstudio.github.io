@@ -479,3 +479,4 @@ body.admin { background: var(--olive-50); }
 .fmodal-x:hover { background: var(--forest-700); }
 .fmodal-body { overflow-y: auto; display: grid; gap: 12px; padding-right: 4px; -webkit-overflow-scrolling: touch; }
 .fmodal-body img { width: 100%; height: auto; border-radius: 12px; }
+.c-tt { background: #111; }
