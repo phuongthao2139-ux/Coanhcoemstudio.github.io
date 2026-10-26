@@ -60,6 +60,12 @@
     };
 
     var EVENT_TYPES = ["Tiệc cưới", "Sinh nhật", "Doanh nghiệp", "Sự kiện", "Khác"];
+    var LOCATIONS = ["Bình Thuận", "Lâm Đồng", "Tp. Hồ Chí Minh", "Đồng Nai", "Bình Dương", "Vũng Tàu", "Ninh Thuận", "Bình Phước", "Tây Ninh", "Nha Trang"];
+    function findLocation(v) {
+        var s = String(v || "").trim().toLowerCase();
+        for (var i = 0; i < LOCATIONS.length; i++) { if (LOCATIONS[i].toLowerCase() === s) return LOCATIONS[i]; }
+        return "";
+    }
     var STATUSES = ["Mới", "Đang tư vấn", "Đã xác nhận", "Đã hủy"];
     var STORE_KEY = "miumiu.booth.data.v1";
     var AUTH_KEY = "miumiu.booth.admin";
@@ -562,7 +568,9 @@
             '<div class="field"><input name="phone" type="tel" inputmode="tel" placeholder="Số điện thoại *" autocomplete="tel" value="' + esc(v.phone) + '" />' + fe("phone") + "</div>" +
             '<div class="field"><input name="email" type="email" placeholder="Email (nếu có)" autocomplete="email" maxlength="150" value="' + esc(v.email) + '" />' + fe("email") + "</div>" +
             '<div class="field"><label class="field-label">Ngày tổ chức *</label><input name="eventDate" type="date" min="' + todayStr() + '" value="' + esc(v.eventDate) + '" />' + fe("eventDate") + "</div>" +
-            '<div class="field"><input name="location" placeholder="Địa điểm tổ chức *" maxlength="250" value="' + esc(v.location) + '" />' + fe("location") + "</div>" +
+            '<div class="field"><select name="location"><option value="">Địa điểm tổ chức *</option>' +
+            LOCATIONS.map(function (l) { return '<option value="' + esc(l) + '"' + (l === v.location ? " selected" : "") + ">" + esc(l) + "</option>"; }).join("") +
+            "</select>" + fe("location") + "</div>" +
             '<div class="field"><select name="eventType"><option value="">Loại sự kiện *</option>' +
             EVENT_TYPES.map(function (t) { return '<option value="' + esc(t) + '"' + (t === eventType ? " selected" : "") + ">" + esc(t) + "</option>"; }).join("") +
             "</select>" + fe("eventType") + "</div>" +
@@ -890,7 +898,10 @@
         if (f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())) e.email = "Email không hợp lệ";
         if (!f.eventDate) e.eventDate = "Vui lòng chọn ngày tổ chức";
         else if (f.eventDate < todayStr()) e.eventDate = "Ngày tổ chức không được ở quá khứ";
-        if (!f.location.trim()) e.location = "Vui lòng nhập địa điểm";
+        var loc = findLocation(f.location);
+        if (!f.location.trim()) e.location = "Vui lòng chọn địa điểm";
+        else if (!loc) e.location = "Hiện chưa phục vụ khu vực này. Vui lòng chọn một địa điểm trong danh sách";
+        else f.location = loc;
         if (!f.eventType) e.eventType = "Vui lòng chọn loại sự kiện";
         else if (EVENT_TYPES.indexOf(f.eventType) < 0) e.eventType = "Loại sự kiện không hợp lệ";
         return e;
