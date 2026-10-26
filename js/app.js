@@ -352,7 +352,7 @@
         return '<article class="card service-card"><div class="card-media">' + media + '</div>' +
             '<h3 class="card-title">' + esc(s.title) + '</h3><p class="card-desc">' + esc(s.description) + '</p>' +
             (showFeatures ? '<ul class="checks">' + lines(s.features).map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>" : "") +
-            '<a class="card-link" href="#/dat-lich?eventType=' + encodeURIComponent(type) + '">Xem chi tiết →</a></article>';
+            '<a class="card-link" href="#/hinh-anh?cat=' + encodeURIComponent(type) + '">Xem chi tiết →</a></article>';'<a class="card-link" href="#/dat-lich?eventType=' + encodeURIComponent(type) + '">Xem chi tiết →</a></article>';
     }
 
     function packageCard(p) {
@@ -832,6 +832,12 @@
             var saved = localStorage.getItem(FILTER_KEY);
             if (saved && Array.prototype.some.call(tabs, function (t) { return t.getAttribute("data-filter") === saved; })) filter = saved;
         } catch (e) { /* bỏ qua */ }
+        // Đến từ thẻ dịch vụ (#/hinh-anh?cat=Tiệc cưới): mở đúng danh mục đó
+        var want = parseHash().q.cat;
+        if (want && Array.prototype.some.call(tabs, function (t) { return t.getAttribute("data-filter") === want; })) {
+            filter = want;
+            try { localStorage.setItem(FILTER_KEY, filter); } catch (e) { /* bỏ qua */ }
+        }
 
         function draw() {
             var visible = 0, total = 0;
