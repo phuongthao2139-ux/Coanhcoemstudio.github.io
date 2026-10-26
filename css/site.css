@@ -457,3 +457,25 @@ body.admin { background: var(--olive-50); }
     transform: translateY(-10px) scale(1.06);
     filter: drop-shadow(0 28px 32px rgba(36, 86, 59, .35));
 }
+
+/* Khung "Điểm đặc biệt": hover + bấm mở khung ảnh */
+.feature[data-fi] { cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.feature[data-fi]:hover, .feature[data-fi]:focus-visible { transform: translateY(-5px); border-color: var(--forest-500); box-shadow: 0 14px 30px rgba(47, 107, 75, .25); outline: none; }
+.feature.has-bg::before { transition: background .2s ease; }
+.feature[data-fi]:hover::before { background: rgba(250, 247, 234, .35); }
+
+.no-scroll { overflow: hidden; }
+.fmodal { position: fixed; inset: 0; z-index: 110; background: rgba(18, 48, 31, .8); display: grid; place-items: center; padding: 16px; }
+.fmodal-card {
+    position: relative; width: min(640px, 100%); max-height: 88vh; display: flex; flex-direction: column;
+    background: var(--cream); border-radius: 20px; padding: 22px 18px 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+.fmodal-title { margin: 0 36px 2px 4px; color: var(--forest-600); font-size: 1.25rem; }
+.fmodal-sub { margin: 0 4px 12px; color: var(--muted); font-size: .9rem; }
+.fmodal-x {
+    position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%;
+    border: 0; background: var(--forest-500); color: #fff; font-size: 1.1rem; line-height: 1; cursor: pointer;
+}
+.fmodal-x:hover { background: var(--forest-700); }
+.fmodal-body { overflow-y: auto; display: grid; gap: 12px; padding-right: 4px; -webkit-overflow-scrolling: touch; }
+.fmodal-body img { width: 100%; height: auto; border-radius: 12px; }

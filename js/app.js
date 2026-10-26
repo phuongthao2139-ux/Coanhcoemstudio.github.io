@@ -94,7 +94,11 @@
         { file: "le2.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 2" },
         { file: "le3.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 3" },
         { file: "le4.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 4" },
-        { file: "le5.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 5" }
+        { file: "le5.jpg", cat: "Sự kiện", title: "Sự kiện ngày lễ 5" },
+        { file: "sn1.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
+        { file: "sn2.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
+        { file: "sn3.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" },
+        { file: "sn4.jpg", cat: "Sinh nhật", title: "Sự kiện ngày lễ 5" }
     ];
 
     // =====================================================================
@@ -263,9 +267,9 @@
     function bySort(a, b) { return (a.sortOrder - b.sortOrder) || (a.price - b.price) || 0; }
     function activePackages() { return db.packages.filter(function (p) { return p.isActive; }).sort(bySort); }
     // Tạm ẩn dịch vụ: ghi đúng tên dịch vụ vào đây; muốn hiện lại thì xóa khỏi danh sách.
-    var HIDDEN_SERVICES = ["Sinh nhật"];
+    var HIDDEN_SERVICES = [];
     // Tạm ẩn danh mục ảnh trong trang Hình ảnh (cả tab lẫn ảnh trong "Tất cả"). Muốn hiện lại thì để [].
-    var HIDDEN_CATEGORIES = ["Sinh nhật"];
+    var HIDDEN_CATEGORIES = [];
     // Đổi tên hiển thị của dịch vụ: "tên cũ": "tên mới"
     var SERVICE_TITLES = { "Khai trương - Khác": "Sự kiện, Ngày Lễ","Sự kiện doanh nghiệp": "Tiệc công ty" };
     function activeServices() {
@@ -315,7 +319,7 @@
         // Ảnh cho thẻ Dịch vụ: ưu tiên SERVICE_IMAGES, nếu không có thì lấy ảnh đầu tiên của danh mục đó trong thư viện ảnh.
     var SERVICE_IMAGES = {
         "Tiệc cưới": "images/cuoibia.jpg",
-        "Sinh nhật": "images/sn1.jpg",
+        "Sinh nhật": "images/sn.jpg",
         "Doanh nghiệp": "images/biadn.jpg",
         "Sự kiện": "images/sukien.jpg"
     };
@@ -413,8 +417,7 @@
             '<p class="hero-sub">Photobooth xinh xắn dành cho mọi sự kiện<br />Đám cưới, sinh nhật, khai trương, sự kiện doanh nghiệp...</p>' +
             '<div class="btn-row"><a class="btn btn-primary" href="#/dat-lich">Đặt lịch ngay →</a><a class="btn btn-ghost" href="#/dich-vu">Xem dịch vụ</a></div></div>' +
            '</div></div>' +
-            '<ul class="container perks"><li><span>📽️</span>Ảnh chất lượng cao</li><li><span>🌿</span>Nhiều khung ảnh xinh</li>' +
-            '<li><span>🥰</span>Phù hợp mọi sự kiện</li><li><span>💚</span>Hỗ trợ tận tâm</li></ul></section>' +
+              '</section>' +
             '<section class="section"><div class="container"><h2 class="section-title"><span class="ico">DỊCH VỤ CỦA CHÚNG MÌNH</h2>' +
             '<p class="section-sub">Phù hợp với mọi khoảnh khắc quan trọng trong cuộc sống</p><div class="grid grid-4 grid-center">' +
             activeServices().map(function (s) { return serviceCard(s, false); }).join("") + "</div></div></section>" +
@@ -423,19 +426,54 @@
             '<a class="btn btn-primary" href="#/dat-lich">Đặt lịch ngay →</a></div></section>');
     };
         // 4 khung "Điểm đặc biệt" (trang Giới thiệu). img = ảnh nền (đặt trong images/), để "" nếu không muốn dùng ảnh.
+    // 4 khung "Điểm đặc biệt". img = ảnh nền; photos = các ảnh hiện trong khung khi bấm (thêm bớt tùy ý, đặt trong images/).
     var FEATURES = [
-        { ico: "",  title: "Thiết kế xinh xắn",         desc: "Phù hợp mọi không gian",       img: "images/anh1.jpg" },
-        { ico: "",  title: "Hình ảnh chất lượng cao",   desc: "Máy ảnh chuyên nghiệp",        img: "images/may1.jpg" },
-        { ico: "", title: "Nhiều khung ảnh sáng tạo",  desc: "Liên tục cập nhật mẫu mới",    img: "images/anh3.jpg" },
-        { ico: "", title: "Dịch vụ tận tâm",           desc: "Hỗ trợ từ A - Z cho bạn",      img: "images/anh4.jpg" }
+        { title: "Thiết kế xinh xắn",         desc: "Phù hợp mọi không gian",    img: "images/tk.jpg",
+          photos: ["images/tk.jpg", "images/c1.jpg", "images/c5.jpg"] },
+        { title: "Hình ảnh chất lượng cao",   desc: "Máy ảnh chuyên nghiệp",     img: "images/may1.jpg",
+          photos: ["images/may1.jpg", "images/may2.jpg"] },
+        { title: "Nhiều khung ảnh sáng tạo",  desc: "Liên tục cập nhật mẫu mới", img: "images/anh1.jpg",
+          photos: ["images/anh1.jpg", "images/khung1.jpg", "images/khung2.jpg", "images/khung3.jpg"] },
+        { title: "Dịch vụ tận tâm",           desc: "Hỗ trợ từ A - Z cho bạn",   img: "images/anh4.jpg",
+          photos: ["images/anh4.jpg","images/biadn.jpg","images/pk.jpg","images/pk1.jpg"] }
     ];
     function featureCards() {
-        return FEATURES.map(function (f) {
+        return FEATURES.map(function (f, i) {
             var u = safeUrl(f.img);
-            return '<article class="card feature' + (u ? " has-bg" : "") + '"' + (u ? ' style="background-image:url(\'' + esc(u) + '\')"' : "") + '>' +
-                '<span class="feature-ico">' + f.ico + "</span><h3>" + esc(f.title) + "</h3><p>" + esc(f.desc) + "</p></article>";
+            return '<article class="card feature' + (u ? " has-bg" : "") + '" data-fi="' + i + '" role="button" tabindex="0" aria-label="Xem ảnh: ' + esc(f.title) + '"' +
+                (u ? ' style="background-image:url(\'' + esc(u) + '\')"' : "") + '>' +
+                "<h3>" + esc(f.title) + "</h3><p>" + esc(f.desc) + "</p></article>";
         }).join("");
     }
+
+    // Khung xem ảnh tạm: bấm 1 khung "Điểm đặc biệt" -> hiện khung, cuộn lên xuống xem ảnh, bấm X / nền / phím Esc để đóng.
+    function openFeatureModal(i) {
+        var f = FEATURES[i];
+        if (!f) return;
+        var imgs = (f.photos || []).map(safeUrl).filter(Boolean);
+        var box = document.createElement("div");
+        box.className = "fmodal";
+        box.innerHTML = '<div class="fmodal-card" role="dialog" aria-modal="true" aria-label="' + esc(f.title) + '">' +
+            '<button type="button" class="fmodal-x" aria-label="Đóng">✕</button>' +
+            '<h3 class="fmodal-title">' + esc(f.title) + '</h3><p class="fmodal-sub">' + esc(f.desc) + '</p>' +
+            '<div class="fmodal-body">' + (imgs.length ? imgs.map(function (u) { return '<img src="' + esc(u) + '" alt="' + esc(f.title) + '" loading="lazy" />'; }).join("") :
+                '<p class="muted">Chưa có ảnh.</p>') + '</div></div>';
+        function onKey(ev) { if (ev.key === "Escape") close(); }
+        function close() { document.removeEventListener("keydown", onKey); document.body.classList.remove("no-scroll"); box.remove(); }
+        box.addEventListener("click", function (ev) { if (ev.target === box || ev.target.closest(".fmodal-x")) close(); });
+        document.addEventListener("keydown", onKey);
+        document.body.classList.add("no-scroll");
+        document.body.appendChild(box);
+    }
+    document.addEventListener("click", function (e) {
+        var c = e.target.closest(".feature[data-fi]");
+        if (c) openFeatureModal(Number(c.getAttribute("data-fi")));
+    });
+    document.addEventListener("keydown", function (e) {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        var c = e.target.closest && e.target.closest(".feature[data-fi]");
+        if (c) { e.preventDefault(); openFeatureModal(Number(c.getAttribute("data-fi"))); }
+    });
 
     pages.about = function () {
         return siteLayout("about",
