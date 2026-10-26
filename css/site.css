@@ -339,7 +339,14 @@ body.admin { background: var(--olive-50); }
     .section-title.left { text-align: center; }
     .perks { grid-template-columns: repeat(2, 1fr); }
     .perks li { padding: 10px 12px; gap: 8px; font-size: .82rem; }
-    .perks li span { font-size: 1.3rem; }
+    .perks li span { font-size: 1.3rem; }/* Thư viện ảnh: ảnh hiện đủ, không cắt, xếp theo hàng */
+.masonry { display: flex !important; flex-wrap: wrap; gap: 12px; columns: auto !important; }
+.masonry::after { content: ""; flex-grow: 999; }
+.shot { height: auto !important; margin: 0 !important; flex: 1 1 200px; }
+.shot img { display: block; width: 100% !important; height: auto !important; object-fit: contain !important; }
+@media (max-width: 640px) {
+    .masonry { gap: 8px; }
+}
     .steps { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr; }
 }
@@ -482,3 +489,12 @@ body.admin { background: var(--olive-50); }
 .fmodal-body { overflow-y: auto; display: grid; gap: 12px; padding-right: 4px; -webkit-overflow-scrolling: touch; }
 .fmodal-body img { width: 100%; height: auto; border-radius: 12px; }
 .c-tt { background: #111; }
+
+/* Thư viện ảnh: ảnh hiện đủ, không cắt, xếp theo hàng */
+.masonry { display: flex !important; flex-wrap: wrap; gap: 12px; columns: auto !important; }
+.masonry::after { content: ""; flex-grow: 999; }
+.shot { height: auto !important; margin: 0 !important; flex: 1 1 200px; }
+.shot img { display: block; width: 100% !important; height: auto !important; object-fit: contain !important; }
+@media (max-width: 640px) {
+    .masonry { gap: 8px; }
+}
