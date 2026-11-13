@@ -83,7 +83,7 @@
         gallery("le", 1, 5,  "Sự kiện",      "Sự kiện ngày lễ"),
         gallery("sn", 1, 4,  "Sinh nhật",    "Sinh nhật")
     );
-
+   GALLERY_PHOTOS = GALLERY_PHOTOS.concat(window.GALLERY_EXTRA || []);
     // =====================================================================
     // TIỆN ÍCH
     // =====================================================================
