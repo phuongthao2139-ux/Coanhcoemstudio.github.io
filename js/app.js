@@ -78,10 +78,10 @@
         return out;
     }
     var GALLERY_PHOTOS = [].concat(
-        gallery("c",  1, 110, "Tiệc cưới",    "Tiệc cưới"),
-        gallery("sk", 1, 39, "Doanh nghiệp", "Tiệc công ty"),
-        gallery("le", 1, 5,  "Sự kiện",      "Sự kiện ngày lễ"),
-        gallery("sn", 1, 4,  "Sinh nhật",    "Sinh nhật")
+        gallery("c",  1, 500, "Tiệc cưới",    "Tiệc cưới"),
+        gallery("sk", 1, 500, "Doanh nghiệp", "Tiệc công ty"),
+        gallery("le", 1, 500,  "Sự kiện",      "Sự kiện ngày lễ"),
+        gallery("sn", 1, 500,  "Sinh nhật",    "Sinh nhật")
     );
    GALLERY_PHOTOS = GALLERY_PHOTOS.concat(window.GALLERY_EXTRA || []);
     // =====================================================================
