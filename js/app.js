@@ -416,7 +416,7 @@
         { title: "Hình ảnh chất lượng cao",   desc: "Máy ảnh chuyên nghiệp",     img: "images/may1.jpg",
           photos: ["images/may1.jpg", "images/may2.jpg"] },
         { title: "Nhiều khung ảnh sáng tạo",  desc: "Liên tục cập nhật mẫu mới", img: "images/anh1.jpg",
-          photos: ["images/anh1.jpg", "images/khung1.jpg", "images/khung2.jpg", "images/khung3.jpg"] },
+          photos: ["images/anh1.jpg", "images/khung2.jpg", "images/khung3.jpg", "images/khung1.jpg", "images/khung4.jpg", "images/khung5.jpg","images/khung6.jpg", "images/khung7.jpg","images/khung8.jpg","images/khung9.jpg"] },
         { title: "Dịch vụ tận tâm",           desc: "Hỗ trợ từ A - Z cho bạn",   img: "images/anh4.jpg",
           photos: ["images/anh4.jpg","images/biadn.jpg","images/pk.jpg","images/pk1.jpg"] }
     ];
